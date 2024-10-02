@@ -9,8 +9,46 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            color: #333;
+            color: #7c7171;
         }
+
+        .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(40, 44, 52, 0); /* Initially invisible */
+        transition: background 0.3s ease;
+        padding: 10px 0;
+        z-index: 1000; /* Ensure it's above other elements */
+        text-align: center;
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .navbar li {
+            display: inline;
+            margin: 0 20px; /* Space between links */
+        }
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #ddd; /* Change color on hover */
+        }
+        .scrolled {
+            background: rgba(40, 44, 52, 0.9); /* Darker when scrolled */
+        }
+        html {
+        scroll-behavior: smooth; /* Enables smooth scrolling */
+        }
+
+
         .fullscreen {
             height: 100vh;
             display: flex;
@@ -27,8 +65,7 @@
             font-size: 4em;
             font-weight: bold;
         }
-        h2 
-        {
+        h2 {
             text-align: center; /* Centers the headings */
         }
         .typing-animation {
@@ -75,10 +112,53 @@
         img:hover {
             transform: scale(1.05);
         }
+        .project-item {
+        text-align: center;
+        position: relative; /* Positioning context for child elements */
+        overflow: hidden; /* Hide overflow for the hover effect */
+        }
+        .project-item img {
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.3s ease; /* Add transition for scaling */
+        }
+        .project-item:hover img {
+        transform: scale(1.05); /* Enlarge the image on hover */
+        }
+        .project-name {
+        background: #f0f0f0; /* Light background color */
+        border-radius: 8px; /* Soft edges */
+        padding: 10px;
+        margin-top: 8px; /* Space between image and name */
+        font-weight: bold; /* Optional: make the text bold */
+        transition: transform 0.3s ease; /* Add transition for scaling */
+        }
+
+        .project-item:hover .project-name {
+        transform: scale(1.05); /* Enlarge the project name on hover */
+        }
+        footer {
+        text-align: center;
+        padding: 10px 0;
+        background: #282c34;
+        color: white;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        }
+
     </style>
 </head>
 <body>
-
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">Work Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+        </ul>
+    </nav>
+    
     <div class="fullscreen" id="home">
         <h1>Luke Taylor</h1>
         <div class="typing-animation">Games Programmer</div>
@@ -91,16 +171,28 @@
 
     <div class="container" id="experience">
         <h2>Work Experience</h2>
-        <p>I've worked on various projects that have helped me gain practical experience in game development. I am always eager to learn more and take on new challenges.</p>
+        <p>I've worked on various projects that have helped me gain practical experience in game development.</p>
     </div>
 
     <div class="container" id="projects">
         <h2>My Projects</h2>
         <div class="image-grid">
-            <img src="https://picsum.photos/300/200?random=1" alt="Project 1">
-            <img src="https://picsum.photos/300/200?random=2" alt="Project 2">
-            <img src="https://picsum.photos/300/200?random=3" alt="Project 3">
-            <img src="https://picsum.photos/300/200?random=4" alt="Project 4">
+            <div class="project-item">
+                <img src="https://picsum.photos/300/200?random=1" alt="Project 1">
+                <div class="project-name">Project 1</div>
+            </div>
+            <div class="project-item">
+                <img src="https://picsum.photos/300/200?random=2" alt="Project 2">
+                <div class="project-name">Project 2</div>
+            </div>
+            <div class="project-item">
+                <img src="https://picsum.photos/300/200?random=3" alt="Project 3">
+                <div class="project-name">Project 3</div>
+            </div>
+            <div class="project-item">
+                <img src="https://picsum.photos/300/200?random=4" alt="Project 4">
+                <div class="project-name">Project 4</div>
+            </div>
         </div>
     </div>
 
@@ -114,5 +206,20 @@
         });
     </script>
 
+    <footer>
+    &copy; 2024 Luke Taylor. All rights reserved.
+    </footer>
+
+
+    <script>
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    </script>
 </body>
 </html>
