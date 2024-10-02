@@ -3,60 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmer's Portfolio</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Luke Taylor - Games Programming Student</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .fullscreen {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #282c34;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4em;
+            font-weight: bold;
+        }
+        h2 
+        {
+            text-align: center; /* Centers the headings */
+        }
+        .typing-animation {
+            position: absolute;
+            bottom: 20px; /* Adjust to move up/down */
+            font-size: 2em;
+            font-family: 'Courier New', monospace;
+            border-right: 2px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 6s steps(20) infinite, blink 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            0%, 10%, 100% { width: 0; }
+            20%, 80% { width: 325px; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .about, .experience, .projects {
+            padding: 60px 20px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic">
-            <h1>John Doe</h1>
-            <p>Full-Stack Developer</p>
+
+    <div class="fullscreen" id="home">
+        <h1>Luke Taylor</h1>
+        <div class="typing-animation">Games Programmer</div>
+    </div>
+
+    <div class="container" id="about">
+        <h2>About Me</h2>
+        <p>I am a second year student at Staffordshire University, pursuing a career in games programming. I am passionate about creating engaging gameplay experiences and continuously improving my skills.</p>
+    </div>
+
+    <div class="container" id="experience">
+        <h2>Work Experience</h2>
+        <p>I've worked on various projects that have helped me gain practical experience in game development. I am always eager to learn more and take on new challenges.</p>
+    </div>
+
+    <div class="container" id="projects">
+        <h2>My Projects</h2>
+        <div class="image-grid">
+            <img src="https://picsum.photos/300/200?random=1" alt="Project 1">
+            <img src="https://picsum.photos/300/200?random=2" alt="Project 2">
+            <img src="https://picsum.photos/300/200?random=3" alt="Project 3">
+            <img src="https://picsum.photos/300/200?random=4" alt="Project 4">
         </div>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hi, I'm John Doe, a passionate full-stack developer with experience in building dynamic and responsive websites and applications...</p>
-        </section>
-        
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="projects-container">
-                <!-- Projects will be injected here by JavaScript -->
-            </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2024 John Doe</p>
-    </footer>
-    
-    <script src="scripts/main.js"></script>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.container');
+            sections.forEach((section) => {
+                section.style.opacity = 1;
+                section.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
 </body>
 </html>
