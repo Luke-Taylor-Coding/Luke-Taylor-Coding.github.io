@@ -1,6 +1,6 @@
 
 new TypeIt("#typed-text", {
-    strings: ["Games Programmer", "Portfolio Showcase"],  
+    strings: ["Games Programmer", "Portfolio Showcase", "Work in Progress"],  
     speed: 50,     // Typing speed
     deleteSpeed: 25,  // Speed at which the text is deleted
     breakLines: false,  
@@ -9,6 +9,26 @@ new TypeIt("#typed-text", {
     loopDelay: 5000,  
     waitUntilVisible: true,
 }).go();
+
+const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('.fade-in-section');
+    sections.forEach(section => observer.observe(section));
+});
 
 
 document.addEventListener('DOMContentLoaded', function() {
