@@ -207,41 +207,6 @@ img:hover {
     transform: scale(1.05);
     border-radius: 8px;
 }
-.project-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 0; 
-    background: rgba(40, 44, 52, 0.9); 
-    color: white;
-    transition: height 0.3s ease; 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-    padding: 10px;
-    opacity: 0; 
-    border-radius: 8px; 
-}
-.project-item:hover .project-overlay {
-    height: 80%; 
-    opacity: 1;
-}
-.project-overlay h3 {
-    margin: 0;
-    font-size: 1.2em;
-    font-weight: bold;
-}
-.project-overlay p {
-    margin: 5px 0 0;
-    font-size: 0.9em;
-}
-.project-overlay {
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-top: 10px;
-    padding-left: 10px;
-}
 footer {
     text-align: center;
     padding: 10px 0;
