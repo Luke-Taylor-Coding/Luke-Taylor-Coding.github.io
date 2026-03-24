@@ -24,20 +24,37 @@
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const mobileOverlay = document.querySelector('.mobile-overlay');
+
+function closeMobileMenu() {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    if (mobileOverlay) mobileOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+}
 
 if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
+        const isOpen = navLinks.classList.contains('active');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            hamburger.classList.add('active');
+            navLinks.classList.add('active');
+            if (mobileOverlay) mobileOverlay.classList.add('active');
+            document.body.classList.add('menu-open');
+        }
     });
 
     // Close mobile menu when a link is clicked
     document.querySelectorAll('.nav-links li a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-        });
+        link.addEventListener('click', closeMobileMenu);
     });
+
+    // Close mobile menu when overlay is clicked
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+    }
 }
 
 // Smooth scrolling for anchor links
