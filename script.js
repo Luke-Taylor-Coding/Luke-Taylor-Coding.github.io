@@ -261,3 +261,52 @@ function initCarousel() {
 // Initialize carousel on page load
 document.addEventListener('DOMContentLoaded', initCarousel);
 
+// Hover Preview Swap — animated WebP on hover, static PNG on leave
+(function initHoverPreviews() {
+    // Skip on touch-only devices to avoid stuck hover states
+    if ('ontouchstart' in window && !window.matchMedia('(hover: hover)').matches) return;
+
+    const hoverImages = document.querySelectorAll('img[data-hover]');
+    if (!hoverImages.length) return;
+
+    // Cache for preloaded hover images
+    const preloadCache = new Map();
+
+    hoverImages.forEach(img => {
+        const staticSrc = img.getAttribute('src');
+        const hoverSrc = img.getAttribute('data-hover');
+        if (!hoverSrc) return;
+
+        // Store the static src for restoration
+        img.dataset.static = staticSrc;
+
+        // Find the hoverable parent (project-card or work-item)
+        const hoverTarget = img.closest('.project-card') || img.closest('.work-item');
+        if (!hoverTarget) return;
+
+        hoverTarget.addEventListener('mouseenter', () => {
+            // Preload on first hover, then swap
+            if (preloadCache.has(hoverSrc)) {
+                img.src = hoverSrc;
+            } else {
+                const preload = new Image();
+                preload.onload = () => {
+                    preloadCache.set(hoverSrc, true);
+                    // Only swap if still hovering
+                    if (hoverTarget.matches(':hover')) {
+                        img.src = hoverSrc;
+                    }
+                };
+                preload.onerror = () => {
+                    // WebP doesn't exist yet — fail silently, keep static image
+                    preloadCache.set(hoverSrc, false);
+                };
+                preload.src = hoverSrc;
+            }
+        });
+
+        hoverTarget.addEventListener('mouseleave', () => {
+            img.src = staticSrc;
+        });
+    });
+})();

@@ -834,13 +834,18 @@ body.menu-open {
 .project-image {
     width: 100%;
     height: 180px;
-    background-size: cover;
-    background-position: center;
     position: relative;
-    transition: all 0.4s ease;
+    overflow: hidden;
 }
 
-.project-card:hover .project-image {
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.project-card:hover .project-image img {
     transform: scale(1.02);
 }
 
@@ -1374,10 +1379,19 @@ footer {
     width: 350px;
     min-height: 220px;
     flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.work-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.work-item:hover .work-item-image img {
+    transform: scale(1.03);
 }
 
 .work-item-info {
