@@ -833,7 +833,7 @@ body.menu-open {
 
 .project-image {
     width: 100%;
-    height: 180px;
+    height: 250px;
     position: relative;
     overflow: hidden;
 }
@@ -850,16 +850,16 @@ body.menu-open {
 }
 
 .project-content {
-    padding: 24px;
+    padding: 13px 16px;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
 .project-title {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: var(--text-primary);
     transition: color 0.3s ease;
     letter-spacing: 2px;
@@ -870,17 +870,17 @@ body.menu-open {
 }
 
 .project-description {
-    font-size: 0.8rem;
+    font-size: 0.74rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: 16px;
+    line-height: 1.5;
+    margin-bottom: 8px;
     letter-spacing: 0.3px;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 5px;
     margin-top: auto;
 }
 
@@ -888,9 +888,9 @@ body.menu-open {
     background: rgba(127, 85, 177, 0.06);
     color: var(--accent-color);
     border: 1px solid rgba(127, 85, 177, 0.15);
-    padding: 5px 14px;
+    padding: 3px 9px;
     border-radius: 0;
-    font-size: 0.65rem;
+    font-size: 0.59rem;
     font-weight: 700;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -1381,9 +1381,13 @@ footer {
     flex-shrink: 0;
     overflow: hidden;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
 }
 
 .work-item-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
