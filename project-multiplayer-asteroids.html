@@ -67,21 +67,20 @@
                 <span class="project-date">2025</span>
                 <h1 class="project-title">Space Chunks</h1>
                 <p class="project-description">
-                    A 2D multiplayer asteroids game built with C# and Monogame showcasing networking.
+                    A top-down 2D multiplayer asteroids game built with C# directly on the MonoGame framework. All gameplay systems — physics, collision, networking and UI — are written from scratch using MonoGame's game loop, SpriteBatch renderer and input API.
                     <br><br>
-                    Players compete in real-time with networked multiplayer, featuring client-server architecture
-                    and synchronised game state across connected players.
+                    Networking follows a client-server model over TCP and UDP. TCP manages connection handshakes and reliable state updates while UDP handles high-frequency positional data. A dedicated server broadcasts synchronised game state to all connected clients.
+                    <br><br>
+                    Gameplay features thrust-and-drift ship movement, projectile firing and asteroid fragmentation, with projectiles and fragments managed via an object pool. Players share a global life pool, scoring is synchronised in real time, and the project includes a lobby system with login UI and a HUD displaying live score and lives.
                 </p>
                 <div class="project-tags">
                     <span>C#</span>
-                    <span>Monogame</span>
+                    <span>MonoGame</span>
                     <span>Multiplayer</span>
                     <span>Networking</span>
+                    <span>TCP/UDP</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link github" title="View on GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
                     <a href="https://youtu.be/DLRBtDfpujE" target="_blank" class="project-link youtube"
                         title="Watch on YouTube">
                         <i class="fab fa-youtube"></i>

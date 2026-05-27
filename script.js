@@ -10,10 +10,9 @@
         row.addEventListener('click', () => {
             const isActive = item.classList.contains('expanded');
 
-            // Close all items
+
             items.forEach(other => other.classList.remove('expanded'));
 
-            // Toggle clicked item (open if it wasn't active)
             if (!isActive) {
                 item.classList.add('expanded');
             }
@@ -21,7 +20,7 @@
     });
 })();
 
-// Mobile Navigation Toggle
+
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const mobileOverlay = document.querySelector('.mobile-overlay');
@@ -46,18 +45,15 @@ if (hamburger && navLinks) {
         }
     });
 
-    // Close mobile menu when a link is clicked
     document.querySelectorAll('.nav-links li a').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
 
-    // Close mobile menu when overlay is clicked
     if (mobileOverlay) {
         mobileOverlay.addEventListener('click', closeMobileMenu);
     }
 }
 
-// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -65,7 +61,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const targetSection = document.querySelector(targetId);
 
         if (targetSection) {
-            // Offset for fixed header
             const headerOffset = 70;
             const elementPosition = targetSection.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -78,14 +73,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Active Section Indicator (Scroll Spy)
+
 const sections = document.querySelectorAll('section[id]');
 const navLinksAll = document.querySelectorAll('.nav-links li a');
 
 function updateActiveNav() {
     let current = '';
 
-    // Check if at bottom of page
     const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
 
     if (isAtBottom) {
@@ -112,7 +106,7 @@ function updateActiveNav() {
 window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('load', updateActiveNav);
 
-// Navbar scroll effect - show name
+
 const navbar = document.querySelector('.navbar');
 const logoElement = document.querySelector('.logo');
 const heroSection = document.querySelector('.hero');
@@ -131,7 +125,7 @@ if (navbar && heroSection) {
     });
 }
 
-// Scroll Reveal Animation
+
 const revealElements = document.querySelectorAll('.section, .card-image, .timeline-item');
 revealElements.forEach(element => element.classList.add('reveal'));
 
@@ -152,7 +146,7 @@ const revealOptions = {
 const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
 revealElements.forEach(element => revealObserver.observe(element));
 
-// Text Rotator
+
 const textArray = ["Games.", "Tools.", "Systems."];
 const textElement = document.getElementById('changing-text');
 let textIndex = 0;
@@ -189,7 +183,6 @@ function initCarousel() {
     let currentIndex = 0;
     const totalSlides = slides.length;
 
-    // Create dots
     slides.forEach((_, index) => {
         const dot = document.createElement('button');
         dot.classList.add('carousel-dot');
@@ -225,7 +218,6 @@ function initCarousel() {
     prevBtn.addEventListener('click', prevSlide);
     nextBtn.addEventListener('click', nextSlide);
 
-    // Touch/Swipe support
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -251,25 +243,21 @@ function initCarousel() {
         }
     }
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') prevSlide();
         if (e.key === 'ArrowRight') nextSlide();
     });
 }
 
-// Initialize carousel on page load
 document.addEventListener('DOMContentLoaded', initCarousel);
 
-// Hover Preview Swap — animated WebP on hover, static PNG on leave
+
 (function initHoverPreviews() {
-    // Skip on touch-only devices to avoid stuck hover states
     if ('ontouchstart' in window && !window.matchMedia('(hover: hover)').matches) return;
 
     const hoverImages = document.querySelectorAll('img[data-hover]');
     if (!hoverImages.length) return;
 
-    // Cache for preloaded hover images
     const preloadCache = new Map();
 
     hoverImages.forEach(img => {
@@ -277,28 +265,23 @@ document.addEventListener('DOMContentLoaded', initCarousel);
         const hoverSrc = img.getAttribute('data-hover');
         if (!hoverSrc) return;
 
-        // Store the static src for restoration
         img.dataset.static = staticSrc;
 
-        // Find the hoverable parent (project-card or work-item)
         const hoverTarget = img.closest('.project-card') || img.closest('.work-item');
         if (!hoverTarget) return;
 
         hoverTarget.addEventListener('mouseenter', () => {
-            // Preload on first hover, then swap
             if (preloadCache.has(hoverSrc)) {
                 img.src = hoverSrc;
             } else {
                 const preload = new Image();
                 preload.onload = () => {
                     preloadCache.set(hoverSrc, true);
-                    // Only swap if still hovering
                     if (hoverTarget.matches(':hover')) {
                         img.src = hoverSrc;
                     }
                 };
                 preload.onerror = () => {
-                    // WebP doesn't exist yet — fail silently, keep static image
                     preloadCache.set(hoverSrc, false);
                 };
                 preload.src = hoverSrc;

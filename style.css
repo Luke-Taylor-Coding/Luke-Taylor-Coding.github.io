@@ -30,7 +30,6 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
-    /* Dot pattern across entire page */
     background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 25px 25px;
 }
@@ -102,7 +101,7 @@ section {
     text-shadow: none;
 }
 
-/* Scroll Animation */
+/* Scroll Reveal */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -114,7 +113,7 @@ section {
     transform: translateY(0);
 }
 
-/* Navigation - Floating Glass Pill */
+/* Navigation */
 .navbar {
     position: fixed;
     top: 25px;
@@ -208,19 +207,18 @@ section {
     border-radius: 2px;
 }
 
-/* Scroll lock when mobile menu is open */
+
 body.menu-open {
     overflow: hidden;
 }
 
-/* Mobile overlay backdrop */
 .mobile-overlay {
     display: none;
 }
 
 @media (max-width: 768px) {
 
-    /* Hide the wide nav bar on mobile */
+
     .navbar {
         width: auto;
         left: auto;
@@ -249,7 +247,7 @@ body.menu-open {
         z-index: 1002;
     }
 
-    /* Side panel that slides in from the right */
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -299,7 +297,7 @@ body.menu-open {
         border-bottom: none;
     }
 
-    /* Overlay backdrop */
+
     .mobile-overlay {
         display: block;
         position: fixed;
@@ -335,10 +333,7 @@ body.menu-open {
     gap: 60px;
 }
 
-/* Hex Grid Overlay — hidden, replaced by dot pattern */
-.hex-grid-overlay {
-    display: none;
-}
+
 
 .hero-image {
     position: relative;
@@ -373,15 +368,7 @@ body.menu-open {
     border-radius: 8px;
 }
 
-/* Canvas Background */
-#bg-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
+
 
 .hero-content {
     position: relative;
@@ -479,7 +466,7 @@ body.menu-open {
     }
 }
 
-/* Scroll Down Indicator */
+/* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
     bottom: 40px;
@@ -585,7 +572,7 @@ body.menu-open {
     background: rgba(255, 255, 255, 0.05);
 }
 
-/* Experience — Accordion Rows */
+/* Experience */
 .timeline {
     position: relative;
     max-width: 900px;
@@ -596,7 +583,6 @@ body.menu-open {
     gap: 12px;
 }
 
-/* Remove the vertical line */
 .timeline::after {
     display: none;
 }
@@ -617,12 +603,11 @@ body.menu-open {
     border-color: var(--accent-color);
 }
 
-/* Remove the dot marker */
 .timeline-item::after {
     display: none;
 }
 
-/* The clickable row */
+
 .timeline-row {
     display: flex;
     align-items: center;
@@ -692,7 +677,7 @@ body.menu-open {
     font-weight: 600;
 }
 
-/* Toggle Button */
+
 .timeline-toggle {
     width: 36px;
     height: 36px;
@@ -731,7 +716,7 @@ body.menu-open {
     transform: rotate(45deg);
 }
 
-/* Expandable Detail */
+
 .timeline-detail {
     max-height: 0;
     overflow: hidden;
@@ -753,7 +738,6 @@ body.menu-open {
     letter-spacing: 0.3px;
 }
 
-/* Hide bullet lists in timeline for cleaner row look */
 .timeline-content ul {
     display: none;
 }
@@ -796,7 +780,7 @@ body.menu-open {
     }
 }
 
-/* Projects Grid - 2 Column Layout */
+/* Projects Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -908,7 +892,7 @@ body.menu-open {
     }
 }
 
-/* Contact Styles */
+/* Contact */
 .contact-subtitle {
     text-align: center;
     color: var(--text-secondary);
@@ -959,7 +943,7 @@ footer {
 
 
 
-/* Back Button */
+
 .back-button {
     position: fixed;
     top: 30px;
@@ -989,7 +973,7 @@ footer {
     box-shadow: 0 0 20px var(--accent-glow);
 }
 
-/* Project Page Logo */
+
 .project-logo {
     position: fixed;
     top: 30px;
@@ -1015,7 +999,7 @@ footer {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Project Detail Layout */
+/* Project Detail */
 .project-detail {
     min-height: 100vh;
     display: flex;
@@ -1035,7 +1019,7 @@ footer {
     max-width: 450px;
 }
 
-/* Carousel Container */
+/* Carousel */
 .carousel {
     position: relative;
     width: 100%;
@@ -1093,7 +1077,7 @@ footer {
     color: rgba(255, 255, 255, 0.15);
 }
 
-/* Carousel Navigation Arrows */
+
 .carousel-arrow {
     position: absolute;
     top: 50%;
@@ -1129,7 +1113,7 @@ footer {
     right: 15px;
 }
 
-/* Carousel Dots */
+
 .carousel-dots {
     position: absolute;
     bottom: 15px;
@@ -1160,7 +1144,7 @@ footer {
     transform: scale(1.2);
 }
 
-/* Project Info Panel */
+
 .info-panel {
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(20px);
@@ -1201,7 +1185,7 @@ footer {
     margin-bottom: 30px;
 }
 
-/* Project Links */
+
 .project-links {
     display: flex;
     gap: 15px;
@@ -1245,7 +1229,7 @@ footer {
     box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
 }
 
-/* Responsive Design for Project Pages */
+
 @media (max-width: 1024px) {
     .project-detail {
         flex-direction: column;
@@ -1307,7 +1291,7 @@ footer {
     }
 }
 
-/* Fixed CV Download Button */
+/* CV Button */
 .fixed-cv-btn {
     position: fixed;
     top: 25px;

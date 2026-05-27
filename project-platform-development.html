@@ -76,22 +76,30 @@
                 <span class="project-date">2024</span>
                 <h1 class="project-title">Platform Development</h1>
                 <p class="project-description">
-                    A 2D wave based game built for the Evercade handheld console using C++ and SDL ported to the console
-                    via Docker.
+                    A 2D wave-based game built for the Evercade handheld console using C++ and SDL2, cross-compiled and
+                    ported to the ARM Linux target hardware using Docker.
                     <br><br>
-                    The game features a progressive wave based system with multiple abilities, a shop and fully built
-                    game loop including high score tracking and animations.
+                    The rendering pipeline is built entirely on SDL2, handling sprite-sheet animation,
+                    backgrounds and HUD rendering without a third-party engine. A Docker container packages the ARM
+                    Linux cross-compiler and Evercade SDK, enabling consistent builds that deploy directly to the
+                    console.
+                    <br><br>
+                    Gameplay is driven by a progressive wave system with escalating enemy counts and difficulty scaling.
+                    Players unlock and switch between multiple combat abilities, spending currency earned per wave in an
+                    in-game shop to purchase upgrades and health between rounds.
+                    <br><br>
+                    The project implements a complete game state machine including main menu, gameplay, shop, pause and
+                    game-over screens alongside persistent high-score tracking, full sprite-sheet animation for
+                    characters and enemies and controller support for the Evercade console.
                 </p>
                 <div class="project-tags">
                     <span>C++</span>
                     <span>Console</span>
-                    <span>SDL</span>
+                    <span>SDL2</span>
                     <span>Docker</span>
+                    <span>Linux</span>
                 </div>
                 <div class="project-links">
-                    <a href="#" class="project-link github" title="View on GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
                     <a href="https://youtu.be/CRFOHzt2Qqo" target="_blank" class="project-link youtube"
                         title="Watch on YouTube">
                         <i class="fab fa-youtube"></i>
