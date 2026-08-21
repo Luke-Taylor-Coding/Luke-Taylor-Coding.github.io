@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Low Level Optimization | Luke Taylor</title>
+
+    <meta name="description"
+        content="Low Level Optimization - An OpenGL application exploring memory allocators, thread pools, and spatial partitioning to achieve a 119x physics performance improvement.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .carousel-slide--contain img {
+            object-fit: contain;
+            background: #0a0a0a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="assets/Luke-Taylor-CV.pdf" download class="fixed-cv-btn"><i class="fas fa-download"></i> Download CV</a>
+
+    <a href="index.html" class="back-button" title="Back to Portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <a href="index.html" class="project-logo">Luke <span class="accent-text">Taylor</span></a>
+
+
+    <section class="project-detail">
+
+        <div class="project-media">
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <iframe src="https://www.youtube.com/embed/OH_QEIbgKlU"
+                            title="Low Level Optimization Video" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="assets/Project_Low_Level_Optimization/Screenshot 2026-08-20 235632.png"
+                            alt="Low Level Optimization - Scene View">
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="assets/Project_Low_Level_Optimization/Screenshot 2026-08-20 235616.png"
+                            alt="Low Level Optimization - Results">
+                    </div>
+
+                    <div class="carousel-slide carousel-slide--contain">
+                        <img src="assets/Project_Low_Level_Optimization/UpdatePhysics -Start.png"
+                            alt="Optick Profiler - Baseline (250.5ms)">
+                    </div>
+
+                    <div class="carousel-slide carousel-slide--contain">
+                        <img src="assets/Project_Low_Level_Optimization/UpdatePhysics -End.png"
+                            alt="Optick Profiler - Optimised (1.9ms)">
+                    </div>
+                </div>
+                <button class="carousel-arrow prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-arrow next"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+
+
+        <div class="project-info">
+            <div class="info-panel">
+                <span class="project-date">2025</span>
+                <h1 class="project-title">Low Level Optimization</h1>
+                <p class="project-description">
+                    An OpenGL application built to investigate and benchmark low-level performance
+                    optimisation techniques. The scene renders 8,000 simultaneously colliding cubes and
+                    spheres confined within a fixed boundary, providing a consistent and stress-intensive
+                    workload for profiling. Performance was measured using Optick (a C++ frame profiler)
+                    alongside custom in-engine instrumentation.
+                    <br><br>
+                    The unoptimised baseline recorded an average physics update time of <strong>250.5ms</strong>.
+                    Three targeted optimisations were then applied: a fixed-size memory allocator for deterministic allocation,
+                    reduced fragmentation, and built-in memory tracking and validation; a thread pool with a
+                    producer-consumer job queue distributing rendering and collision work across available cores; and
+                    spatial collision partitioning, assigning discrete regions of the scene to individual threads to
+                    eliminate contention and redundant broad-phase checks.
+                    <br><br>
+                    The combined result reduced the average physics update time to <strong>1.9ms</strong> — a
+                    <strong>131× improvement</strong> — sustaining a stable 90fps with 8,000 fully colliding objects.
+                </p>
+                <div class="project-tags">
+                    <span>C++</span>
+                    <span>OpenGL</span>
+                    <span>Optimization</span>
+                    <span>Multithreading</span>
+                    <span>Memory Management</span>
+                    <span>Profiling</span>
+                    <span>Low Level</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://youtu.be/OH_QEIbgKlU" target="_blank" class="project-link youtube" title="Watch on YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

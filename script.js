@@ -293,3 +293,65 @@ document.addEventListener('DOMContentLoaded', initCarousel);
         });
     });
 })();
+
+(function initShowcaseReel() {
+    const slides = document.querySelectorAll('.showcase-slide');
+    const dotsContainer = document.getElementById('showcaseDots');
+    const label = document.getElementById('showcaseLabel');
+    if (!slides.length || !dotsContainer || !label) return;
+
+    const labels = [
+        'Sparrow Engine',
+        'PCG Dungeon Crawler',
+        'Low Level Optimization',
+        'Space Chunks',
+        'Platform Development',
+        'VR Experience'
+    ];
+
+    let current = 0;
+    let timer;
+
+    slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'showcase-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', labels[i]);
+        dot.addEventListener('click', () => { goTo(i); resetTimer(); });
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.showcase-dot');
+
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        label.classList.remove('visible');
+
+        current = index;
+
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        label.textContent = labels[current];
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => { label.classList.add('visible'); });
+        });
+    }
+
+    function advance() {
+        goTo((current + 1) % slides.length);
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(advance, 3000);
+    }
+
+    label.textContent = labels[0];
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => { label.classList.add('visible'); });
+    });
+
+    resetTimer();
+})();
+

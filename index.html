@@ -47,19 +47,43 @@
 
     <section id="home" class="hero">
 
-        <div class="hero-content">
-            <span class="subtitle">Game Programmer</span>
-            <h1>Luke <span class="accent-text">Taylor</span></h1>
-            <p class="tagline">I build <span class="accent-text" id="changing-text">Games.</span></p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn primary-btn">See Work</a>
+        <div class="hero-left">
+            <div class="hero-profile">
+                <div class="profile-image">
+                    <img src="assets/Index/Personal_Image.png" alt="Luke Taylor">
+                </div>
+            </div>
+            <div class="hero-content">
+                <span class="subtitle">Game Programmer</span>
+                <h1>Luke <span class="accent-text">Taylor</span></h1>
+                <p class="tagline">I build <span class="accent-text" id="changing-text">Games.</span></p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary-btn">See Work</a>
+                </div>
             </div>
         </div>
-        <div class="hero-image">
-            <div class="profile-image">
-                <img src="assets/Index/Personal_Image.png" alt="Luke Taylor">
+
+        <div class="hero-showcase">
+            <div class="showcase-frame">
+                <div class="showcase-reel" id="showcaseReel">
+                    <img class="showcase-slide active" src="assets/Project_Sparrow_Engine/EngineDev-Short.webp"
+                        alt="Sparrow Engine">
+                    <img class="showcase-slide" src="assets/Project_Dungeon_Generator/FYP-Short.webp"
+                        alt="PCG Dungeon Crawler">
+                    <img class="showcase-slide" src="assets/Project_Low_Level_Optimization/LLO-Short.webp"
+                        alt="Low Level Optimization">
+                    <img class="showcase-slide" src="assets/Project_Multiplayer_Asteroids/Multiplayer-Short.webp"
+                        alt="Space Chunks">
+                    <img class="showcase-slide" src="assets/Project_Platform_Dev/BespokeDev-Short.webp"
+                        alt="Platform Development">
+                    <img class="showcase-slide" src="assets/Project_VR_Experience/VR-Short.webp" alt="VR Experience">
+                </div>
+                <div class="showcase-label" id="showcaseLabel">Sparrow Engine</div>
+                <div class="showcase-dots" id="showcaseDots"></div>
             </div>
+
         </div>
+
         <a href="#about" class="scroll-indicator" aria-label="Scroll down">
             <i class="fas fa-chevron-down"></i>
         </a>
@@ -77,9 +101,8 @@
                         passion
                         for PCG and low level systems and am always looking to improve my skills and knowledge. I love a
                         good problem to solve
-                        and am always up for a challenge to push past my limits. I have just finished my three year
-                        course
-                        at Staffordshire University studying Games Programming.</p>
+                        and am always up for a challenge to push past my limits. I have just graduated from my three
+                        year course at Staffordshire University studying Games Programming.</p>
                 </div>
             </div>
         </div>
@@ -130,22 +153,23 @@
                     </article>
                 </a>
 
-                <a href="project-platform-development.html" class="project-card-link">
+                <a href="project-low-level-optimization.html" class="project-card-link">
                     <article class="project-card">
                         <div class="project-image">
-                            <img src="assets/Project_Platform_Dev/Screenshot 2026-03-01 195026.png"
-                                data-hover="assets/Project_Platform_Dev/BespokeDev-Short.webp"
-                                alt="Platform Development" style="object-position: center bottom;">
+                            <img src="assets/Project_Low_Level_Optimization/Screenshot 2026-08-20 235616.png"
+                                data-hover="assets/Project_Low_Level_Optimization/LLO-Short.webp"
+                                alt="Low Level Optimization">
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title">Platform Development</h3>
-                            <p class="project-description">A 2D wave-based game built with C++ and SDL2 for the
-                                Evercade handheld, cross-compiled via a Docker-based toolchain.</p>
+                            <h3 class="project-title">Low Level Optimization</h3>
+                            <p class="project-description">An OpenGL application benchmarking low-level performance
+                                techniques, cutting physics update time from 250.5ms to 1.9ms across 8,000 colliding
+                                objects.</p>
                             <div class="project-tags">
                                 <span>C++</span>
-                                <span>Console</span>
-                                <span>SDL2</span>
-                                <span>Docker</span>
+                                <span>OpenGL</span>
+                                <span>Optimization</span>
+                                <span>Multithreading</span>
                             </div>
                         </div>
                     </article>
@@ -171,11 +195,65 @@
                         </div>
                     </article>
                 </a>
+
+                <a href="project-vr-experience.html" class="project-card-link">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="assets/Project_VR_Experience/Screenshot 2025-05-11 175747.png"
+                                data-hover="assets/Project_VR_Experience/VR-Short.webp" alt="VR Experience">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">VR Experience</h3>
+                            <p class="project-description">An interactive VR experience built in Unity with SteamVR
+                                for the Valve Index, featuring physics-driven minigames in a low-poly environment.</p>
+                            <div class="project-tags">
+                                <span>Unity</span>
+                                <span>VR</span>
+                                <span>C#</span>
+                                <span>SteamVR</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <a href="project-platform-development.html" class="project-card-link">
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="assets/Project_Platform_Dev/Screenshot 2026-03-01 195026.png"
+                                data-hover="assets/Project_Platform_Dev/BespokeDev-Short.webp"
+                                alt="Platform Development" style="object-position: center bottom;">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Platform Development</h3>
+                            <p class="project-description">A 2D wave-based game built with C++ and SDL2 for the
+                                Evercade handheld, cross-compiled via a Docker-based toolchain.</p>
+                            <div class="project-tags">
+                                <span>C++</span>
+                                <span>Console</span>
+                                <span>SDL2</span>
+                                <span>Docker</span>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+
+                <article class="project-card project-card--placeholder project-card--centered">
+                    <div class="project-image project-image--placeholder">
+                        <i class="fas fa-code" style="font-size: 2.5rem; color: rgba(127, 85, 177, 0.35);"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">FarmLike <span
+                                style="color: var(--text-secondary); font-size: 0.7em;">(Coming Soon)</span></h3>
+                        <p class="project-description">A farming roguelike game built with Unity - Currently in
+                            development.</p>
+                        <div class="project-tags">
+                            <span>In Development</span>
+                        </div>
+                    </div>
+                </article>
+
             </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="all-works.html" class="btn primary-btn"><i class="fas fa-th-list"
-                        style="margin-right: 8px;"></i> See All Work</a>
-            </div>
+
         </div>
     </section>
 
@@ -186,7 +264,7 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-row">
-                        <span class="timeline-date">2023 — Present</span>
+                        <span class="timeline-date">2023 — 2026</span>
                         <div class="timeline-content">
                             <h3>Staffordshire University</h3>
                             <p>Games Programming Student</p>
@@ -194,11 +272,13 @@
                         <button class="timeline-toggle"><span>+</span></button>
                     </div>
                     <div class="timeline-detail">
-                        <p>Enrolled in Staffordshire University to study Games Programming and level up my skills in
-                            all aspects of game development and programming. I am currently in my third year of the
-                            course and have produces a number of exiting games and projects. The skills I have developed
-                            here
-                            are preparing me to be industry ready for when I graduate.
+                        <p>Enrolled in Staffordshire University to study Games Programming at one of the best
+                            universities in the UK for games development. The course built up my programming
+                            skills in C++ and C#, teaching me how to build and maintain industry level code that is
+                            clean
+                            and scalable. It has also introduced me to a varitey of game engines and tools such as
+                            Unity,
+                            Unreal, MonoGame, SDL2, OpenGL and more.
                         </p>
                     </div>
                 </div>
